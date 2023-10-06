@@ -1,5 +1,4 @@
 .header {
-  // height: 100vh;
   // background-image: url(../images/bg-mobile-1.jpg);
   // background-position: no-repeat;
   // background-position: center;
@@ -45,7 +44,6 @@
     }
   }
 }
-
 
 .header-inner__btn {
   display: flex;
@@ -195,23 +193,32 @@ ul.header-menu-inner-link__list.list {
 }
 
 .hero {
+  height: 100vh;
   position: relative;
   z-index: 1;
   padding: 19px 0 24px;
   &-content {
     display: none;
-    height: 509px;
+    height: 100vh;
     &-bg {
       position: absolute;
       z-index: -1;
       top: -112px;
-      left: 0%;
+      
+      
+      left: -15%;
     }
     &-bg img {
       min-width: 320px;
       min-height: 634px;
-      width: 100%;
-      height: 100%;
+      width: 120%;
+      height: auto;
+      object-fit: cover;
+    }
+    &-wrapper img {
+      overflow: hidden;
+      height: 100vh;
+
     }
     &-text {
       &-main {
@@ -282,7 +289,7 @@ ul.header-menu-inner-link__list.list {
   }
   &-buttons {
     position: absolute;
-    bottom: 24px;
+    bottom: 142px;
     display: flex;
     gap: 10px;
     &-btn {
@@ -303,7 +310,6 @@ ul.header-menu-inner-link__list.list {
 .hero-active {
   display: flex;
   flex-wrap: wrap;
-  gap: 130px;
 }
 
 .about-us {
@@ -664,7 +670,6 @@ marquee {
   display: none;
 }
 
-
 .support-form {
   background-color: $black;
   color: $white;
@@ -846,7 +851,6 @@ marquee {
       font-size: 16px;
       font-weight: 500;
       margin-bottom: 35px;
-  
     }
 
     &__list {
@@ -859,7 +863,6 @@ marquee {
   width: 320px;
   height: 324px;
 }
-
 
 .gallery-images {
   width: 214px;
