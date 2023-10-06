@@ -1,187 +1,94 @@
+// Надати li class no-mobile, для приховування в мобільній версії
+
+function removeNoMobileElements() {
+    if (window.innerWidth <= 767) {
+        const noMobileElements = document.querySelectorAll('.no-mobile');
+        noMobileElements.forEach(element => {
+            element.remove();
+        });
+    }
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
-    const counterBlockColor = document.querySelector(".header-counter-block-color");
-    const counterText = document.querySelector(".header-counter-text");
-    const headerCounterBlock = document.querySelector(".header-counter-block");
-    const slideContainer = document.querySelector(".header");
+    removeNoMobileElements();
 
-    const slidesMobile = [
-        {
-            text: "Lift or go f*rk",
-            simpleText: "",
-            bgImage: "url(../images/bg-mobile-1.jpg)",
-        },
-        {
-            text: "Philosophy",
-            simpleText: "of Aesthetic Life",
-            bgImage: "url(../images/bg-mobile-2.jpg)",
-        },
-        {
-            text: "Push",
-            secondText: "or Die",
-            simpleText: "",
-            bgImage: "url(../images/bg-mobile-3.jpg)",
-        },
-    ];
+    const heroBlocks = document.querySelectorAll('.hero-content');
+    const heroPrevButton = document.getElementById('hero-left');
+    const heroNextButton = document.getElementById('hero-right');
+    const heroCounter = document.querySelector('.hero-counter-block-color');
+    const heroSliderCounterText = document.querySelector('.hero-counter-text');
 
-    const slidesTablet = [
-        {
-            text: "Lift or go f*rk",
-            simpleText: "",
-            bgImage: "url(../images/bg-tablet-1.jpg)",
-        },
-        {
-            text: "Join the Lifestyle",
-            simpleText: "of Aesthetic Life",
-            bgImage: "url(../images/bg-tablet-3.jpg)",
-        },
-        {
-            text: "Philosophy",
-            simpleText: "of Aesthetic Life",
-            bgImage: "url(../images/bg-tablet-2.jpg)",
-        },
-        {
-            text: "Push",
-            secondText: "or Die",
-            simpleText: "",
-            bgImage: "url(../images/bg-tablet-4.jpg)",
-        },
-        
-    ];
-
-    const slides1280 = [
-        {
-            text: "Lift or go f*rk",
-            simpleText: "",
-            bgImage: "url(../images/bg-desktop-1.jpg)",
-        },
-        {
-            text: "Join the Lifestyle",
-            simpleText: "of",
-            simpleTextSecond: "Aesthetic Life",
-            bgImage: "url(../images/bg-desktop-2.jpg)",
-            color: "white",
-            fill: "black",
-            width: "860px",
-        },
-        {
-            text: "Philosophy",
-            simpleText: "of",
-            simpleTextSecond: "Aesthetic Life",
-            bgImage: "url(../images/bg-desktop-3.jpg)",
-            color: "white",
-            fill: "black",
-        },
-        {
-            text: "Push",
-            secondText: "or Die",
-            simpleText: "",
-            bgImage: "url(../images/bg-desktop-4.jpg)",
-        },
-        
-        
-    ];
-
-    const slides1920 = [
-        {
-            text: "Lift or go f*rk",
-            simpleText: "",
-            bgImage: "url(../images/bg-full-hd-1.jpg)",
-        },
-        {
-            text: "Join the Lifestyle",
-            simpleText: "of Aesthetic Life",
-            bgImage: "url(../images/bg-full-hd-2.jpg)",
-            fontSize: "88px",
-            fill: "black",
-        },
-        {
-            text: "Philosophy",
-            simpleText: "of Aesthetic Life",
-            bgImage: "url(../images/bg-full-hd-3.jpg)",
-            fontSize: "88px",
-            fill: "black",
-        },
-        {
-            text: "Push",
-            secondText: "or Die",
-            simpleText: "",
-            bgImage: "url(../images/bg-full-hd-4.jpg)",
-        },
-    ];
-
-    // Высоты контейнера для разных устройств
-    const maxColorHeightMobile = 70; // Высота для мобильных устройств
-    const maxColorHeightTablet = 116; // Высота для планшетных устройств
-    const maxColorHeightDesktop = 176; // Высота для десктопных устройств
-    const maxColorHeightFull = 215;
-   
-
-    let currentSlide = 0;
-
-    function updateSlide() {
-        let slides;
-        let maxColorHeight;
-    
-        if (window.innerWidth >= 1920)  {
-            slides = slides1920;
-            maxColorHeight = maxColorHeightFull;
-        } else if (window.innerWidth >= 1280) {
-            slides = slides1280;
-            maxColorHeight = maxColorHeightDesktop;
+    // Функция для определения максимальной высоты блока счетчика в зависимости от размера экрана
+    function getMaxColorHeight() {
+        if (window.innerWidth >= 1280) {
+            return 236; // Максимальная высота для устройств от 1280px и выше
         } else if (window.innerWidth >= 768) {
-            slides = slidesTablet;
-            maxColorHeight = maxColorHeightTablet;
+            return 118; // Максимальная высота для устройств от 768px до 1279px
         } else {
-            slides = slidesMobile;
-            maxColorHeight = maxColorHeightMobile;
+            return 70; // Максимальная высота для мобильных устройств
         }
-    
-        const slide = slides[currentSlide];
-    
-        counterBlockColor.style.height = maxColorHeight + "px";
-        slideContainer.style.backgroundImage = slide.bgImage;
-        slideContainer.querySelector(".header-content-text").textContent = slide.text;
-        slideContainer.querySelector(".header-content-text").style.color = slide.color || "black"; // Устанавливаем цвет текста
-        slideContainer.querySelector(".header-content-text").style.fontSize = slide.fontSize || "";  
-        slideContainer.querySelector(".header-content-second").textContent = slide.secondText || "";
-        slideContainer.querySelector(".header-simple-text").textContent = slide.simpleText;
-        slideContainer.querySelector(".header-simple-second").textContent = slide.simpleTextSecond || "";       
-        slideContainer.querySelector(".header-content-text").style.width = slide.width || "";
-        const headerIcons = slideContainer.querySelectorAll(".header-icon");
-headerIcons.forEach(icon => {
-    icon.style.fill = slide.fill || "white";
-});
-    
-        updateCounterTextAndColor(currentSlide, slides.length, maxColorHeight);
     }
 
-    function nextSlide() {
-        const slides = window.innerWidth >= 768 ? slidesTablet : slidesMobile;
-        currentSlide = (currentSlide + 1) % slides.length;
-        updateSlide();
+    // Находим индекс активного слайда по классам
+    function findActiveSlideIndex() {
+        for (let i = 0; i < heroBlocks.length; i++) {
+            if (heroBlocks[i].classList.contains('hero-active')) {
+                return i;
+            }
+        }
+        // Если активный слайд не найден, возвращаем 0 (первый слайд)
+        return 0;
     }
 
-    function prevSlide() {
-        const slides = window.innerWidth >= 768 ? slidesTablet : slidesMobile;
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        updateSlide();
+    // Функция для отображения активных слайдов
+    function showSlide(index) {
+        heroBlocks.forEach((block, i) => {
+          if (i === index) {
+            block.classList.add('hero-active');
+          } else {
+            block.classList.remove('hero-active');
+          }
+        });
+
+        updateCounterBlockColorHight(index, heroBlocks.length);
+        updateCounterText(index);
     }
 
-    function updateCounterTextAndColor(slideIndex, slidesLength, maxColorHeight) {
+    function updateCounterText(slideIndex) {
         const slideNumber = (slideIndex + 1).toString().padStart(2, "0");
-        counterText.textContent = slideNumber;
-
-        const colorHeight = ((slideIndex + 1) / slidesLength) * maxColorHeight;
-        counterBlockColor.style.height = colorHeight + "px";
+        heroSliderCounterText.textContent = slideNumber;
     }
 
-    const nextButton = document.querySelector(".header-scroll-btn:nth-child(2)");
-    const prevButton = document.querySelector(".header-scroll-btn:nth-child(1)");
+    function updateCounterBlockColorHight(slideIndex, slidesLength) {
+        const maxColorHeight = getMaxColorHeight();
+        const colorHeight = (slideIndex + 1) * (maxColorHeight / slidesLength);
+        heroCounter.style.height = colorHeight + "px";
+    }
 
-    nextButton.addEventListener("click", nextSlide);
-    prevButton.addEventListener("click", prevSlide);
+    // Функция для переключения на предыдущий слайд
+    function prevSlide() {
+        let currentSlideIndex = findActiveSlideIndex();
+        currentSlideIndex = (currentSlideIndex - 1 + heroBlocks.length) % heroBlocks.length;
+        showSlide(currentSlideIndex);
+    }
 
-    updateSlide();
+    // Функция для переключения на следующий слайд
+    function nextSlide() {
+        let currentSlideIndex = findActiveSlideIndex();
+        currentSlideIndex = (currentSlideIndex + 1) % heroBlocks.length;
+        showSlide(currentSlideIndex);
+    }
 
-    window.addEventListener("resize", updateSlide);
+    // Назначаем обработчики событий для кнопок
+    heroPrevButton.addEventListener('click', prevSlide);
+    heroNextButton.addEventListener('click', nextSlide);
+
+    // Показываем первый слайд при загрузке страницы
+    showSlide(0);
+
+    // Обновляем высоту блока при изменении размера окна
+    window.addEventListener('resize', function () {
+        updateCounterBlockColorHight(findActiveSlideIndex(), heroBlocks.length);
+    });
 });
