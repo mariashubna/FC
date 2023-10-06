@@ -22,6 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/style.min.css" />
   </head>
   <body class="body">
@@ -641,7 +642,7 @@
           </p>
 
           <ul class="spec-programs-list">
-            <li class="spec-programs-item spec-programs-active">
+            <li class="spec-programs-item spec-programs-active" id="program-list-first">
               <h4 class="spec-programs-item-title">Sport program 1</h4>
               <div class="spec-programs-item__content">
                 <h3 class="spec-programs-list-title">«5x5 STRENGHT PROGRAM»</h3>
@@ -659,7 +660,7 @@
                 </p>
               </div>
             </li>
-            <li class="spec-programs-item spec-programs-active">
+            <li class="spec-programs-item spec-programs-active" id="program-list">
               <h4 class="spec-programs-item-title">Sport program 2</h4>
               <div class="spec-programs-item__content">
                 <h3 class="spec-programs-list-title">
@@ -674,7 +675,7 @@
                 </p>
               </div>
             </li>
-            <li class="spec-programs-item spec-programs-active">
+            <li class="spec-programs-item spec-programs-item-last spec-programs-active" id="program-list">
               <h4 class="spec-programs-item-title">Sport program 3</h4>
               <div class="spec-programs-item__content">
                 <h3 class="spec-programs-list-title">«MUSCLE HYPERTROPHY»</h3>
@@ -687,6 +688,7 @@
                   burning)
                 </p>
               </div>
+              <img class="spec-programs-desc-img-2" src="./images/spec-programs-2.jpg" alt="">
             </li>
           </ul>
 
@@ -702,7 +704,10 @@
               alt=""
             />
           </div>
+           <img class="spec-programs-desc-img-1" src="./images/spec-programs-1.jpg" alt="">
+       
         </div>
+       
       </section>
 
       <section class="programs">
@@ -865,7 +870,64 @@
           <div class="gallery-inner">
             <h2 class="gallery-inner__title title">Gallery</h2>
             <p>Look at me</p>
-            <div class="swiper swiper-reviews custom-swiper">
+
+
+
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    class="gallery-images slider-image"
+                    src="images/photo-1.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    class="gallery-images slider-image"
+                    src="images/photo-2.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    class="gallery-images slider-image"
+                    src="images/photo-3.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    class="gallery-images slider-image"
+                    src="images/photo-4.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    class="gallery-images slider-image"
+                    src="images/photo-1.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    class="gallery-images slider-image"
+                    src="images/photo-2.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    class="gallery-images slider-image"
+                    src="images/photo-3.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>             
+            </div>
+
+         <!-- <div class="swiper swiper-reviews custom-swiper">
               <ul class="gallery-inner__list swiper-wrapper custom-swiper">
                 <li class="gallery-inner__list-item swiper-slide">
                   <img
@@ -905,7 +967,7 @@
               </ul>
               <div class="swiper-pagination"></div>
             </div>
-          </div>
+          </div> -->
         </div>
       </section>
 
@@ -1462,7 +1524,7 @@
             <img src="images/logo.png" alt="" />
           </div>
           <ul class="footer-inner-menu__list list">
-            <li class="footer-inner-menu__list-item">
+            <li class="footer-inner-menu__list-item ">
               <a href="">About us</a>
             </li>
             <li class="footer-inner-menu__list-item">
@@ -1686,13 +1748,11 @@
       </div>
     </div>
 
-    <script src="js/main.js"></script>
+    
     <script type="module" src="js/slider.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
     <script src="./js/modal.js"></script>
     <script src="./js/reviews.js"></script>
     <script src="./js/bg-slider.js"></script>

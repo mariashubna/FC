@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (window.innerWidth >= 768) {
             return 118; // Максимальная высота для устройств от 768px до 1279px
         } else {
-            return 70; // Максимальная высота для мобильных устройств
+            return 71; // Максимальная высота для мобильных устройств
         }
     }
 

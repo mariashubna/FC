@@ -91,6 +91,10 @@
     }
   }
 
+  .swiper {
+    width: 425px;
+  }
+
   .reviews-container {
     max-width: 425px;
     padding: 0 50px;
@@ -98,6 +102,9 @@
 
   .reviews-wrap-logo {
     right: 68px;
+  }
+  .footer-inner {
+    gap: 40px 140px;
   }
 }
 
@@ -108,19 +115,20 @@
   .hero-active {
     gap: 169px;
   }
-  .hero-content-text-second  {
+  .hero-content-text-second {
     width: 526px;
   }
-  
+
   .hero-content-bg {
     top: -340px;
-    
   }
 
   .hero-content-bg img {
     max-width: 580px;
     max-height: 1150px;
-    clip-path: inset(0px 0px 280px 0px); /* Обрезаем нижнюю часть на 30 пикселей */
+    clip-path: inset(
+      0px 0px 280px 0px
+    ); /* Обрезаем нижнюю часть на 30 пикселей */
   }
 
   .reviews-container {
@@ -148,6 +156,10 @@
     .programs-block-content-logo-first {
       top: 22px;
     }
+  }
+
+  .swiper {
+    width: 580px;
   }
 
   .footer {
@@ -308,8 +320,6 @@
     text-align: right;
   }
 
-  
-
   .hero {
     &-content {
       height: 800px;
@@ -320,7 +330,7 @@
       &-bg img {
         max-width: 768px;
         max-height: 1024px;
-        clip-path:unset;
+        clip-path: unset;
       }
       &-text {
         &-main {
@@ -751,14 +761,47 @@
     margin: 15px 0;
   }
 
+  .gallery {
+    padding: 32px 0;
+
+    &-inner {
+      &__title {
+        font-size: 64px;
+        letter-spacing: 1.28px;
+        margin-bottom: 16px;
+      }
+
+      p {
+        font-size: 20px;
+        margin-bottom: 24px;
+      }
+
+      &__list {
+        display: flex;
+        gap: 20px;
+      }
+    }
+  }
+
+  .gallery-images {
+    width: 338px;
+    height: 511px;
+  }
+  .swiper {
+    width: 700px;
+    height: 511px;
+  }
+
   .footer {
     &-inner {
+      gap: 110px 83px;
       &__logo {
         font-size: 56px;
         gap: 180px;
       }
 
       .list-link {
+        flex-direction: column;
         gap: 40px;
       }
     }
@@ -1271,6 +1314,27 @@
     padding: 64px 0;
   }
 
+  .spec-programs-images {
+    display: none;
+  }
+
+  .spec-programs-desc-img-1 {
+    display: block;
+    border-radius: 50%;
+    width: 320px;
+    position: absolute;
+    top: 205px;
+    right: 40px;
+  }
+  .spec-programs-desc-img-2 {
+    display: block;
+    border-radius: 50%;
+    width: 314px;
+    position: absolute;
+    top: -85px;
+    right: 219px;
+  }
+
   .advantages-inner__list-item {
     width: 300px;
     height: 300px;
@@ -1307,6 +1371,15 @@
 
   .advantages-inner__content-img {
     background-color: $black;
+  }
+
+  .gallery-images {
+    width: 425px;
+    height: 642px;
+  }
+  .swiper {
+    width: 1200px;
+    height: 642px;
   }
 
   .spec-programs-img-1 {
@@ -1358,19 +1431,35 @@
     padding: 100px 0;
   }
 
+ 
   .footer-inner__logo {
     font-size: 56px;
-    gap: 60px;
+    margin-right: 107px;
+  }
+  .footer-inner__logo img {
+    display: none;
   }
 
   .footer-inner .list-link {
-    gap: 140px;
+    gap: 24px;
+    position: absolute;
+    left: 70px;
+    bottom: 50px;
   }
 
   .footer-inner {
-    gap: 110px 260px;
-    justify-content: center;
-    padding: 100px 0;
+    align-items: flex-start;
+    gap: 110px 189px;
+    padding: 88px 0 112px;
+  }
+  .footer-inner-menu__list {
+    gap: 42px;
+  }
+  .footer-inner-menu__list-item {
+    font-size: 24px;
+  }
+  .list-link li {
+    font-size: 32px;
   }
 
   .modal-wrap {
@@ -1443,6 +1532,11 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    padding: 0 80px;
+  }
+
   .hero {
     &-content {
       height: 700px;
@@ -1455,7 +1549,6 @@
         max-height: 1152px;
       }
       &-text {
-        
         &-main {
           width: 400px;
           &-white {
@@ -1463,25 +1556,22 @@
             font-size: 88px;
             width: 800px;
           }
-         
         }
         &-second {
           margin-top: 200px;
         }
+      }
+      &-simple {
+        &-text {
+        }
+        &-second {
+          font-size: 88px;
+        }
+        &-third {
+          font-size: 88px;
+        }
+      }
     }
-    &-simple {
-      &-text {
-      }
-      &-second {
-        font-size:  88px;
-       
-      }
-      &-third {
-        font-size:  88px;
-        
-      }
-    }
-  }
   }
 
   .spec-programs-img-1 {
@@ -1497,9 +1587,11 @@
     padding: 24px;
   }
 
-  .container {
-    max-width: 1440px;
-    padding: 0 80px;
+  .swiper {
+    width: 1280px;
+  }
+  .footer-inner .list-link {
+    left: 145px;
   }
 
   .modal-content {
@@ -1583,9 +1675,9 @@
     font-weight: 500;
   }
   .hero {
-    &-content {     
-      flex-direction: column; 
-      height: 800px;
+    &-content {
+      flex-direction: column;
+      height: 840px;
       gap: 206px;
       &-bg {
         top: -220px;
@@ -1627,7 +1719,6 @@
           letter-spacing: 2.64px;
           color: $black;
           width: 1760px;
-
         }
         &-second {
           display: none;
@@ -1644,7 +1735,7 @@
       }
     }
     &-buttons {
-      bottom: 0;
+      bottom: 40px;
       gap: 24px;
       &-btn {
         width: 64px;
@@ -1695,28 +1786,16 @@
     margin: auto;
   }
 
-  .spec-programs-images {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    height: 100%;
-    width: 400px;
-  }
-
-  .spec-programs-img-1 {
+  .spec-programs-desc-img-1 {
     width: 443px;
-    position: absolute;
-    right: 122px;
     top: 146px;
+    right: 95px;
   }
-
-  .spec-programs-img-2 {
+  .spec-programs-desc-img-2 {
     width: 374px;
-    right: 427px;
-    top: 528px;
+    top: -126px;
+    right: 347px;
   }
-
   .advantages {
     justify-content: center;
     display: flex;
@@ -1907,5 +1986,56 @@
         height: 527px;
       }
     }
+  }
+
+  .gallery {
+    padding: 100px 0;
+
+    &-inner {
+      &__title {
+        font-size: 88px;
+        letter-spacing: 2.64px;
+        margin-bottom: 16px;
+      }
+
+      p {
+        font-size: 22px;
+        margin-bottom: 79px;
+      }
+    }
+  }
+
+  .swiper {
+    width: 1800px;
+    height: 642px;
+  }
+  .gallery-images {
+    width: 425px;
+    height: 642px;
+  }
+
+  .footer-inner .list-link {
+    position: unset;
+  }
+  .footer-inner__logo {    
+    margin-right: 0;
+    order: 10;
+    font-size: 72px;
+  }
+  .footer-inner__logo span {
+    width: 490px;
+  }
+  .footer-inner {
+    gap: 110px 208px;
+  }
+  .footer-inner-menu__list {
+   margin-right: 62px;
+  }
+  .footer-inner__bottom {
+    font-size: 24px;
+  }
+  .footer-inner__bottom svg {
+    width: 24px;
+    height: 24px;
   }
 }

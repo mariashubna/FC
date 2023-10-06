@@ -1,57 +1,145 @@
+const swiper = new Swiper(".swiper", {
+  // Optional parameters
+  direction: "horizontal",
+  loop: true,
+  slidesPerView: 2,
+  slidesPerView: "auto",
+  spaceBetween: -80,
+
+  breakpoints: {
+    425: {
+      spaceBetween: -140,
+    },
+    580: {
+      slidesPerView: 3,
+      spaceBetween: 150,
+    },
+    768: {
+        slidesPerView: 2,
+      spaceBetween: 150,
+    },
+    1280: {
+        slidesPerView: 3,
+      spaceBetween: 250,
+    },
+    1920: {
+        slidesPerView: 5,
+      spaceBetween: 390,
+    },
+  },
+});
+
 let titlePrograms = document.querySelectorAll(".spec-programs-item-title");
 let dropDowns = document.querySelectorAll(".spec-programs-item__content");
 
 // Add a click event listener to each title element
 titlePrograms.forEach((titleProgram, index) => {
-    titleProgram.addEventListener("click", () => {
-        // Toggle the "spec-programs-item__content-active" class on the corresponding dropdown element
-        dropDowns[index].classList.toggle("spec-programs-item__content-active");
-        titlePrograms[index].classList.toggle("spec-programs-item-title-active");
-    });
+  titleProgram.addEventListener("click", () => {
+    // Toggle the "spec-programs-item__content-active" class on the corresponding dropdown element
+    dropDowns[index].classList.toggle("spec-programs-item__content-active");
+    titlePrograms[index].classList.toggle("spec-programs-item-title-active");
+  });
 });
 
-
 (() => {
-    const mobileMenu = document.querySelector('.js-menu-container');
-    const openMenuBtn = document.querySelector('.js-open-menu');
-    const closeMenuBtn = document.querySelector('.js-close-menu');
-    const menuItems = document.querySelectorAll('.mobile-menu__item');
+  const mobileMenu = document.querySelector(".js-menu-container");
+  const openMenuBtn = document.querySelector(".js-open-menu");
+  const closeMenuBtn = document.querySelector(".js-close-menu");
+  const menuItems = document.querySelectorAll(".mobile-menu__item");
 
-    const toggleMenu = () => {
-        const isMenuOpen =
-            openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
-        openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
-        mobileMenu.classList.toggle('is-open');
+  const toggleMenu = () => {
+    const isMenuOpen =
+      openMenuBtn.getAttribute("aria-expanded") === "true" || false;
+    openMenuBtn.setAttribute("aria-expanded", !isMenuOpen);
+    mobileMenu.classList.toggle("is-open");
 
-        const scrollLockMethod = !isMenuOpen
-            ? 'disableBodyScroll'
-            : 'enableBodyScroll';
-        // bodyScrollLock[scrollLockMethod](document.body);
-    };
+    const scrollLockMethod = !isMenuOpen
+      ? "disableBodyScroll"
+      : "enableBodyScroll";
+    // bodyScrollLock[scrollLockMethod](document.body);
+  };
 
-    openMenuBtn.addEventListener('click', toggleMenu);
-    closeMenuBtn.addEventListener('click', toggleMenu);
+  openMenuBtn.addEventListener("click", toggleMenu);
+  closeMenuBtn.addEventListener("click", toggleMenu);
 
-    menuItems.forEach(item => {
-        item.addEventListener('click', () => {
-            toggleMenu(); // Закрывает модальное окно при нажатии на элемент меню
-        });
+  menuItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      toggleMenu(); // Закрывает модальное окно при нажатии на элемент меню
     });
+  });
 
-    window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
-        if (!e.matches) return;
-        mobileMenu.classList.remove('is-open');
-        openMenuBtn.setAttribute('aria-expanded', false);
-    });
+  window.matchMedia("(min-width: 768px)").addEventListener("change", (e) => {
+    if (!e.matches) return;
+    mobileMenu.classList.remove("is-open");
+    openMenuBtn.setAttribute("aria-expanded", false);
+  });
 })();
 
 
+
+// ------------модификация картинок------------
+
+const programListItem = document.getElementById("program-list");
+
+  const img2 = document.querySelector(".spec-programs-img-2");
+  const imagesContainer = document.querySelector(".spec-programs-images");
+  const img1 = document.querySelector(".spec-programs-img-1");
+
+if (window.matchMedia("(max-width: 768px)").matches) {
+  
+  programListItem.addEventListener("click", function () {
+    img2.style.display = "none";
+
+    imagesContainer.style.width = "226px";
+    imagesContainer.style.height = "226px";
+
+    img1.style.width = "226px";
+    img1.style.height = "226px";
+  });
+}
+
+const programListFirst = document.getElementById("program-list-first");
+const programList = document.querySelector(".spec-programs-item-last ");
+const descImg1 = document.querySelector(".spec-programs-desc-img-1");
+const descImg2 = document.querySelector(".spec-programs-desc-img-2");
+
+
+programListFirst.addEventListener("click", function () {
+  // Измените стили для экранов шире 1920px
+  if (window.innerWidth > 1920) {
+    descImg1.style.width = "568px";
+    descImg1.style.height = "568px";
+    descImg1.style.right = "0";
+  }
+  // Добавьте условие для изменения стилей на экранах от 768px до 1279px
+  else if (window.innerWidth >= 768 && window.innerWidth <= 1279) {
+    descImg1.style.width = "XXXpx"; // Замените XXX на требуемую ширину
+    descImg1.style.height = "XXXpx"; // Замените XXX на требуемую высоту
+    descImg1.style.right = "XXXpx"; // Замените XXX на требуемое значение right
+    descImg2.style.right = "64px";
+  }
+});
+
+// Добавьте обработчик события "click" к элементу с id "program-list"
+programList.addEventListener("click", function () {
+    // Измените стили для экранов шире 1920px
+    if (window.innerWidth > 1920) {
+      descImg2.style.width = "508px";
+      descImg2.style.height = "508px";
+      descImg2.style.right = "227px";
+    }
+    // Добавьте условие для изменения стилей на экранах от 1290px до 1919px
+    else if (window.innerWidth >= 1290 && window.innerWidth <= 1919) {
+      descImg2.style.width = "XXXpx"; // Замените XXX на требуемую ширину
+      descImg2.style.height = "XXXpx"; // Замените XXX на требуемую высоту
+      descImg2.style.right = "64px"; // Задайте значение right равное 64px
+    }
+    // Добавьте другие условия для других размеров экранов, если необходимо
+  });
+
 // -----------MODAL------------
 
-
 // ----- bg-slider -----
-
-
 
 // document.addEventListener("DOMContentLoaded", function () {
 //     const counterBlockColor = document.querySelector(".header-counter-block-color");
@@ -100,7 +188,7 @@ titlePrograms.forEach((titleProgram, index) => {
 //             simpleText: "",
 //             bgImage: "url(../images/bg-tablet-4.jpg)",
 //         },
-        
+
 //     ];
 
 //     const slides1280 = [
@@ -132,8 +220,7 @@ titlePrograms.forEach((titleProgram, index) => {
 //             simpleText: "",
 //             bgImage: "url(../images/bg-desktop-4.jpg)",
 //         },
-        
-        
+
 //     ];
 
 //     const slides1920 = [
@@ -169,14 +256,13 @@ titlePrograms.forEach((titleProgram, index) => {
 //     const maxColorHeightTablet = 116; // Высота для планшетных устройств
 //     const maxColorHeightDesktop = 176; // Высота для десктопных устройств
 //     const maxColorHeightFull = 215;
-   
 
 //     let currentSlide = 0;
 
 //     function updateSlide() {
 //         let slides;
 //         let maxColorHeight;
-    
+
 //         if (window.innerWidth >= 1920)  {
 //             slides = slides1920;
 //             maxColorHeight = maxColorHeightFull;
@@ -190,23 +276,23 @@ titlePrograms.forEach((titleProgram, index) => {
 //             slides = slidesMobile;
 //             maxColorHeight = maxColorHeightMobile;
 //         }
-    
+
 //         const slide = slides[currentSlide];
-    
+
 //         counterBlockColor.style.height = maxColorHeight + "px";
 //         slideContainer.style.backgroundImage = slide.bgImage;
 //         slideContainer.querySelector(".header-content-text").textContent = slide.text;
 //         slideContainer.querySelector(".header-content-text").style.color = slide.color || "black"; // Устанавливаем цвет текста
-//         slideContainer.querySelector(".header-content-text").style.fontSize = slide.fontSize || "";  
+//         slideContainer.querySelector(".header-content-text").style.fontSize = slide.fontSize || "";
 //         slideContainer.querySelector(".header-content-second").textContent = slide.secondText || "";
 //         slideContainer.querySelector(".header-simple-text").textContent = slide.simpleText;
-//         slideContainer.querySelector(".header-simple-second").textContent = slide.simpleTextSecond || "";       
+//         slideContainer.querySelector(".header-simple-second").textContent = slide.simpleTextSecond || "";
 //         slideContainer.querySelector(".header-content-text").style.width = slide.width || "";
 //         const headerIcons = slideContainer.querySelectorAll(".header-icon");
 // headerIcons.forEach(icon => {
 //     icon.style.fill = slide.fill || "white";
 // });
-    
+
 //         updateCounterTextAndColor(currentSlide, slides.length, maxColorHeight);
 //     }
 
@@ -241,88 +327,90 @@ titlePrograms.forEach((titleProgram, index) => {
 //     window.addEventListener("resize", updateSlide);
 // });
 
-
-
 // ----programs-slider-----
 
-
 document.addEventListener("DOMContentLoaded", function () {
-    const programBlocks = document.querySelectorAll('.programs-block-content');
-    const programPrevButton = document.getElementById('prevButton');
-    const programNextButton = document.getElementById('nextButton');
-    const programsCounter = document.querySelector('.programs-slider-counter-block-color');
-    const programsSliderCounterText = document.querySelector('.programs-slider-counter-text');
+  const programBlocks = document.querySelectorAll(".programs-block-content");
+  const programPrevButton = document.getElementById("prevButton");
+  const programNextButton = document.getElementById("nextButton");
+  const programsCounter = document.querySelector(
+    ".programs-slider-counter-block-color"
+  );
+  const programsSliderCounterText = document.querySelector(
+    ".programs-slider-counter-text"
+  );
 
-    // Функция для определения ширины maxColorWidth в зависимости от размера экрана
-    function getMaxColorWidth() {
-        if (window.innerWidth >= 1280) {
-            return 240; // Ширина для устройств от 1280px и выше
-        } else if (window.innerWidth >= 768) {
-            return 120; // Ширина для устройств от 768px до 1279px
-        } else {
-            return 70; // Ширина для мобильных устройств
-        }
+  // Функция для определения ширины maxColorWidth в зависимости от размера экрана
+  function getMaxColorWidth() {
+    if (window.innerWidth >= 1280) {
+      return 240; // Ширина для устройств от 1280px и выше
+    } else if (window.innerWidth >= 768) {
+      return 120; // Ширина для устройств от 768px до 1279px
+    } else {
+      return 72; // Ширина для мобильных устройств
     }
+  }
 
-    // Находим индекс активного слайда по классам
-    function findActiveSlideIndex() {
-        for (let i = 0; i < programBlocks.length; i++) {
-            if (programBlocks[i].classList.contains('active')) {
-                return i;
-            }
-        }
-        // Если активный слайд не найден, возвращаем 0 (первый слайд)
-        return 0;
+  // Находим индекс активного слайда по классам
+  function findActiveSlideIndex() {
+    for (let i = 0; i < programBlocks.length; i++) {
+      if (programBlocks[i].classList.contains("active")) {
+        return i;
+      }
     }
+    // Если активный слайд не найден, возвращаем 0 (первый слайд)
+    return 0;
+  }
 
-    // Функция для отображения активных слайдов
-    function showSlide(index) {
-        programBlocks.forEach((block, i) => {
-            if (i === index) {
-                block.classList.add('active');
-            } else {
-                block.classList.remove('active');
-            }
-        });
-
-        updateCounterBlockColorWidth(index, programBlocks.length);
-        updateCounterText(index);
-    }
-
-    function updateCounterText(slideIndex) {
-        const slideNumber = (slideIndex + 1).toString().padStart(2, "0");
-        programsSliderCounterText.textContent = slideNumber;
-    }
-
-    function updateCounterBlockColorWidth(slideIndex, slidesLength) {
-        const maxColorWidth = getMaxColorWidth();
-        const colorWidth = (slideIndex + 1) * (maxColorWidth / slidesLength);
-        programsCounter.style.width = colorWidth + "px";
-    }
-
-    // Функция для переключения на предыдущий слайд
-    function prevSlide() {
-        let currentSlideIndex = findActiveSlideIndex();
-        currentSlideIndex = (currentSlideIndex - 1 + programBlocks.length) % programBlocks.length;
-        showSlide(currentSlideIndex);
-    }
-
-    // Функция для переключения на следующий слайд
-    function nextSlide() {
-        let currentSlideIndex = findActiveSlideIndex();
-        currentSlideIndex = (currentSlideIndex + 1) % programBlocks.length;
-        showSlide(currentSlideIndex);
-    }
-
-    // Назначаем обработчики событий для кнопок
-    programPrevButton.addEventListener('click', prevSlide);
-    programNextButton.addEventListener('click', nextSlide);
-
-    // Показываем первый слайд при загрузке страницы
-    showSlide(0);
-
-    // Обновляем ширину при изменении размера окна
-    window.addEventListener('resize', function () {
-        updateCounterBlockColorWidth(findActiveSlideIndex(), programBlocks.length);
+  // Функция для отображения активных слайдов
+  function showSlide(index) {
+    programBlocks.forEach((block, i) => {
+      if (i === index) {
+        block.classList.add("active");
+      } else {
+        block.classList.remove("active");
+      }
     });
+
+    updateCounterBlockColorWidth(index, programBlocks.length);
+    updateCounterText(index);
+  }
+
+  function updateCounterText(slideIndex) {
+    const slideNumber = (slideIndex + 1).toString().padStart(2, "0");
+    programsSliderCounterText.textContent = slideNumber;
+  }
+
+  function updateCounterBlockColorWidth(slideIndex, slidesLength) {
+    const maxColorWidth = getMaxColorWidth();
+    const colorWidth = (slideIndex + 1) * (maxColorWidth / slidesLength);
+    programsCounter.style.width = colorWidth + "px";
+  }
+
+  // Функция для переключения на предыдущий слайд
+  function prevSlide() {
+    let currentSlideIndex = findActiveSlideIndex();
+    currentSlideIndex =
+      (currentSlideIndex - 1 + programBlocks.length) % programBlocks.length;
+    showSlide(currentSlideIndex);
+  }
+
+  // Функция для переключения на следующий слайд
+  function nextSlide() {
+    let currentSlideIndex = findActiveSlideIndex();
+    currentSlideIndex = (currentSlideIndex + 1) % programBlocks.length;
+    showSlide(currentSlideIndex);
+  }
+
+  // Назначаем обработчики событий для кнопок
+  programPrevButton.addEventListener("click", prevSlide);
+  programNextButton.addEventListener("click", nextSlide);
+
+  // Показываем первый слайд при загрузке страницы
+  showSlide(0);
+
+  // Обновляем ширину при изменении размера окна
+  window.addEventListener("resize", function () {
+    updateCounterBlockColorWidth(findActiveSlideIndex(), programBlocks.length);
+  });
 });
