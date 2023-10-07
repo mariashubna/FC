@@ -115,22 +115,29 @@
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 999;
   transform: translateY(-1000%);
+  overflow-y: auto;
 
   &-container {
     position: relative;
     padding: 16px 16px 24px 16px;
+    width: 320px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   &__list {
     color: $black;
-    font-size: 25px;
-    font-weight: 400;
-    line-height: 20px;
     margin: 0 0 100px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 130px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
   }
 
   &__item {
-    margin-bottom: 45px;
     text-align: center;
     &-link {
       color: $white;
