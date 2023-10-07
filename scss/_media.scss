@@ -3,13 +3,13 @@
     max-width: 425px;
   }
   .hero-content-bg {
-    left: -4%;
-    top: -116px;
+    left: -4%;   
+    top: -116px; 
   }
   .hero-content-bg img {
     min-width: 425px;
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden;    
   }
   .hero-content-text-main {
     padding-top: 38px;
@@ -123,13 +123,13 @@
   }
 
   .hero-content-bg {
-    left: -4%;
-    top: -116px;
+    left: -4%;   
+    top: -116px; 
   }
   .hero-content-bg img {
     min-width: 580px;
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden;    
   }
   .mobile-menu-container {
     width: 580px;
@@ -324,6 +324,7 @@
     text-align: right;
   }
 
+  
   .hero {
     &-content {
       height: 75vh;
@@ -334,7 +335,7 @@
       &-bg img {
         min-width: 768px;
         height: 100vh;
-        overflow: hidden;
+        overflow: hidden;  
       }
       &-text {
         &-main {
@@ -386,9 +387,10 @@
     }
   }
   .mobile-menu-container {
-    padding: 32px 32px 69px 32px;
-    width: 768px;
-  }
+      padding: 32px 32px 69px 32px;  
+      width: 768px;
+          
+    }    
   .mobile-menu-container__header {
     margin: 0 0 165px 0;
   }
@@ -420,6 +422,7 @@
   }
   .header-language {
     font-size: 26px;
+    
   }
   .about-us {
     padding: 64px 0;
@@ -469,6 +472,7 @@
         flex-direction: row;
         align-items: center;
         flex-wrap: wrap;
+        //justify-content: center;
         justify-content: flex-end;
         margin: auto;
         width: 704px;
@@ -1046,9 +1050,9 @@
         top: -240px;
       }
       &-bg img {
-        min-width: 1280px;
-        height: 100vh;
-        overflow: unset;
+          min-width: 1280px;
+          height: 100vh;
+          overflow: unset; 
       }
       &-text {
         &-main {
@@ -1056,6 +1060,7 @@
           font-size: 100px;
           &-white {
             color: $white;
+            width: 900px;
           }
         }
         &-second {
@@ -1472,6 +1477,7 @@
     padding: 100px 0;
   }
 
+ 
   .footer-inner__logo {
     font-size: 56px;
     margin-right: 107px;
@@ -1572,15 +1578,16 @@
 }
 
 @media screen and (min-width: 1440px) {
+
   .container {
     max-width: 1440px;
     padding: 0 80px;
   }
 
   .hero {
-    height: 622px;
+    height: 670px;
     &-content {
-      height: 80vh;
+      height: 78vh;
       gap: 32px;
       &-bg {
         top: -284px;
@@ -1726,8 +1733,8 @@
       }
       &-bg img {
         min-width: 1920px;
-        height: 100vh;
-        overflow: unset;
+          height: 100vh;
+          overflow: unset;
       }
       &-text {
         &-main {
@@ -1847,6 +1854,8 @@
 
     &-inner {
       padding: 91px 0 0 0;
+      //width: 813px;
+      //height: 689px;
 
       &__list {
         gap: 65px 77px;
@@ -1869,6 +1878,8 @@
       }
 
       &-img {
+        //width: 717px;
+        //height: 969px;
         width: 100%;
         height: auto;
         padding: 0;
@@ -2056,7 +2067,7 @@
   .footer-inner .list-link {
     position: unset;
   }
-  .footer-inner__logo {
+  .footer-inner__logo {    
     margin-right: 0;
     order: 10;
     font-size: 72px;
@@ -2068,7 +2079,7 @@
     gap: 110px 208px;
   }
   .footer-inner-menu__list {
-    margin-right: 62px;
+   margin-right: 62px;
   }
   .footer-inner__bottom {
     font-size: 24px;
