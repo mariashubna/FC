@@ -1,9 +1,4 @@
 .header {
-  // background-image: url(../images/bg-mobile-1.jpg);
-  // background-position: no-repeat;
-  // background-position: center;
-  // background-size: cover;
-  // background-repeat: no-repeat;
   position: relative;
   z-index: 2;
   &-main {
@@ -193,7 +188,7 @@ ul.header-menu-inner-link__list.list {
 }
 
 .hero {
-  height: 100vh;
+  height: 90vh;
   position: relative;
   z-index: 1;
   padding: 19px 0 24px;
@@ -204,21 +199,16 @@ ul.header-menu-inner-link__list.list {
       position: absolute;
       z-index: -1;
       top: -112px;
-      
-      
-      left: -15%;
+
+      left: -8%;
     }
     &-bg img {
       min-width: 320px;
       min-height: 634px;
-      width: 120%;
-      height: auto;
+      width: 105%;
       object-fit: cover;
-    }
-    &-wrapper img {
       overflow: hidden;
       height: 100vh;
-
     }
     &-text {
       &-main {
@@ -475,6 +465,8 @@ ul.header-menu-inner-link__list.list {
         display: flex;
         gap: 32px;
         align-items: center;
+        position: absolute;
+        bottom: 35px;
         &-prise {
           color: $pink;
           font-family: Tektur;
@@ -557,6 +549,13 @@ ul.header-menu-inner-link__list.list {
 }
 .programs-block-content-first {
   padding-top: 108px;
+}
+
+.modal-content-form-wrap input {
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .marquee {
@@ -986,11 +985,21 @@ marquee {
           border-radius: 50px;
           padding: 0;
           background-color: transparent;
+          transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
           &-icon {
             fill: none;
             stroke: $pink;
+            transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
           }
+
+        }
+        &-btn:hover {
+          background-color: $pink;
+          
+        }
+        &-btn:hover svg {
+          stroke: $white;
         }
       }
     }
@@ -1005,6 +1014,7 @@ marquee {
 .active-review {
   display: block;
 }
+
 
 .modal-wrap {
   position: fixed;
