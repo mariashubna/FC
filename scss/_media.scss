@@ -1042,21 +1042,21 @@
     line-height: normal;
   }
   .hero {
-    height: 80vh;
+    height: 877px;
     &-content {
-      height: 70vh;
+      height: 78vh;
       gap: 32px;
       &-bg {
-        top: -270px;
+        top: -240px;
       }
       &-bg img {
           min-width: 1280px;
           height: 100vh;
-          overflow: hidden;  
+          overflow: unset; 
       }
       &-text {
         &-main {
-          width: 860px;
+          width: 390px;
           font-size: 100px;
           &-white {
             color: $white;
@@ -1577,22 +1577,23 @@
 }
 
 @media screen and (min-width: 1440px) {
+
   .container {
     max-width: 1440px;
     padding: 0 80px;
   }
 
   .hero {
+    height: 622px;
     &-content {
-      height: 70vh;
+      height: 80vh;
       gap: 32px;
       &-bg {
         top: -284px;
+        left: -1%;
       }
       &-bg img {
         min-width: 1440px;
-          height: 100vh;
-          overflow: hidden;
       }
       &-text {
         &-main {
@@ -1721,17 +1722,18 @@
     font-weight: 500;
   }
   .hero {
+    height: 820px;
     &-content {
       flex-direction: column;
-      height: 70vh;
+      height: 80vh;
       gap: 206px;
       &-bg {
-        top: -290px;
+        top: -230px;
       }
       &-bg img {
         min-width: 1920px;
           height: 100vh;
-          overflow: hidden;
+          overflow: unset;
       }
       &-text {
         &-main {
